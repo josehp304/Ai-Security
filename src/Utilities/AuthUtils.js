@@ -10,7 +10,13 @@ const useNavigation=()=>{
     navigate("/SignUp");
   };
 
-  return {loginNavigate,SignUpNavigate}
+  const afterAuth=()=>{
+    navigate('/webInterface');
+  }
+
+  return {loginNavigate,SignUpNavigate,afterAuth
+    
+  }
 }
 
 export default useNavigation;

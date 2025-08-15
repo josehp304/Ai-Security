@@ -2,9 +2,9 @@ import '../App.css'
 import { useState } from 'react'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
-
+import useNavigation from '../Utilities/AuthUtils'
 function Landing() {
-  
+    const {SignUpNavigate}=useNavigation();
   const [menuOpen, setMenuOpen] = useState(false)
   const scrollToSection = (id) => {
   const section = document.getElementById(id);
@@ -45,13 +45,7 @@ function Landing() {
         >Contact</li>
       </ul>
 
-      {/* Mobile Menu Button */}
-      {/* <button
-        className="md:hidden text-2xl transition-transform duration-300"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        {menuOpen ? "✕" : "☰"}
-      </button> */}
+
       <button
   className="md:hidden text-2xl transition-transform duration-300 relative z-[9999]"
   onClick={() => setMenuOpen(!menuOpen)}
@@ -60,19 +54,7 @@ function Landing() {
 </button>
 
     </nav>
-      {/* Mobile Dropdown with Smooth Transition */}
-      {/* <div
-        className={`absolute top-full left-0 w-full z-50 bg-black/90 md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <ul className="flex flex-col items-center space-y-4 py-6 text-lg">
-          <li className="hover:text-blue-400 transition-colors cursor-pointer">Home</li>
-          <li className="hover:text-blue-400 transition-colors cursor-pointer">About</li>
    
-          <li className="hover:text-blue-400 transition-colors cursor-pointer">Contact</li>
-        </ul>
-      </div> */}
 <div
   className={`fixed top-[88px] left-0 w-full z-[9998] bg-black/90 md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
     menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
@@ -152,7 +134,9 @@ function Landing() {
               transition={{ delay: 0.9, duration: 0.8 }}
               className="flex justify-center md:justify-start pt-4"
             >
-              <button className="px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-500 rounded-lg text-center text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30">
+              <button className="px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-500 rounded-lg text-center text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30"
+              onClick={SignUpNavigate}
+              >
                 Get Started Now
               </button>
             </motion.div>

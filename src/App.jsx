@@ -3,6 +3,8 @@
  import Landing from './Home/Landing.jsx'
 import Login from './Home/Login.jsx'
 import SignUp from './Home/SignUp.jsx'
+import LiveWebcam from './WebCamInterface/webInterface.jsx'
+
 function App() {
   
 
@@ -20,6 +22,11 @@ function App() {
      {
        path:'/SignUp',
        element:<SignUp />
+     },
+
+        {
+       path:'/WebInterface',
+       element:<LiveWebcam />
      },
      
    
