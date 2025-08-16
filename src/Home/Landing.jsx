@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import useNavigation from '../Utilities/AuthUtils'
 function Landing() {
-    const {SignUpNavigate}=useNavigation();
+    const {loginNavigate}=useNavigation();
   const [menuOpen, setMenuOpen] = useState(false)
   const scrollToSection = (id) => {
   const section = document.getElementById(id);
@@ -135,7 +135,7 @@ function Landing() {
               className="flex justify-center md:justify-start pt-4"
             >
               <button className="px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-500 rounded-lg text-center text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30"
-              onClick={SignUpNavigate}
+              onClick={loginNavigate}
               >
                 Get Started Now
               </button>

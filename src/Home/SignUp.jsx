@@ -53,7 +53,7 @@ function SignUp() {
         className="btext-white bg-gray-800/90 rounded-2xl p-6 sm:p-8 shadow-lg w-full max-w-[min(90%,400px)] border border-gray-700 mx-auto my-auto"
       >
         {/* Heading */}
-        <h1 className="text-2xl sm:text-3xl font-bold text-center text-white mb-4 sm:mb-6">
+        <h1 className="text-2xl sm:text-3xl font-bold text-center text-white mb-2 sm:mb-4">
           Create an Account
         </h1>
         <p className="text-center text-gray-400 mb-6 text-sm sm:text-base">
@@ -61,7 +61,7 @@ function SignUp() {
         </p>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-3">
           <div>
             <label className="block text-gray-300 mb-2">Full Name</label>
             <input
@@ -113,7 +113,7 @@ function SignUp() {
         </form>
 
         {/* Footer links */}
-        <div className="mt-4 sm:mt-6 text-center text-gray-400 text-sm">
+        <div className="mt-2 sm:mt-4 text-center text-gray-400 text-sm">
           Already have an account?{" "}
        <span  className="text-blue-400 hover:underline cursor-pointer" onClick={loginNavigate}>
             Login

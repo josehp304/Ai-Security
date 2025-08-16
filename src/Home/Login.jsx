@@ -24,6 +24,9 @@ import '../App.css'
      if(user){
       afterAuth();
      }
+    //  else{
+
+    //  }
     }
 
     finally{
@@ -45,7 +48,7 @@ import '../App.css'
   >
     {/* Heading */}
     <h1 className="text-2xl sm:text-3xl font-bold text-center text-white mb-4 sm:mb-6">
-      Welcome Back
+      ThSecurity
     </h1>
     <p className="text-center text-gray-400 mb-6 text-sm sm:text-base">
       Sign in to access your security dashboard
@@ -88,12 +91,12 @@ import '../App.css'
     </form>
 
     {/* Footer links */}
-    <div className="mt-4 sm:mt-6 text-center text-gray-400 text-xs sm:text-sm">
+    {/* <div className="mt-4 sm:mt-6 text-center text-gray-400 text-xs sm:text-sm">
       Don't have an account?{" "}
       <span className="text-blue-400 hover:underline cursor-pointer" onClick={SignUpNavigate}>
         Sign Up
       </span>
-    </div>
+    </div> */}
   </Motion.div>
 </div>
 
