@@ -11,7 +11,7 @@ const useNavigation=()=>{
   };
 
   const afterAuth=()=>{
-    navigate('/webInterface');
+    navigate('/Cameras');
   }
 
   return {loginNavigate,SignUpNavigate,afterAuth
