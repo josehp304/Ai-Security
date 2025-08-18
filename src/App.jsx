@@ -5,7 +5,7 @@ import Login from './Home/Login.jsx'
 import SignUp from './Home/SignUp.jsx'
 import LiveWebcam from './WebCamInterface/Cameras.jsx'
 import Alerts from './WebCamInterface/Alerts.jsx'
-import Settings from './WebCamInterface/Settings.jsx'
+
 import Accounts from './WebCamInterface/Accounts.jsx'
 import Layout from './WebCamInterface/Layout.jsx'
 

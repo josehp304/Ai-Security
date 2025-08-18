@@ -19,9 +19,9 @@ const Layout = () => {
   };
 
   const navItems = [
-    { name: "Cameras", icon: <BiCameraHome size={24} /> },
-    { name: "Alerts", icon: <BiBell size={24} /> },
-    { name: "Account", icon: <MdAccountCircle size={24} /> },
+    { name: "Cameras", icon: <BiCameraHome size={24} />,path:"/Cameras" },
+    { name: "Alerts", icon: <BiBell size={24}  />,path:'/Alerts' },
+    { name: "Account", icon: <MdAccountCircle size={24} /> ,path:'/Accounts'},
     // {name:"Sign Out",icon:<BiLogOut size={24} />, action:()=>handleSignOut()}
   ];
 
@@ -38,7 +38,7 @@ const Layout = () => {
         {/* Desktop Sidebar - Hidden on mobile */}
         <nav className="hidden md:flex flex-col fixed left-0 top-[57px] bottom-0 w-20% bg-gray-800/95 backdrop-blur-sm border-r border-gray-700">
           <div className="flex flex-col py-6 px-2 space-y-4">
-            {navItems.map((item) => (
+            {/* {navItems.map((item) => (
               <Motion.button
                 key={item.name}
                 whileHover={{ scale: 1.02 }}
@@ -50,7 +50,42 @@ const Layout = () => {
                 </div>
                 <span className="text-sm font-medium">{item.name}</span>
               </Motion.button>
-            ))}
+            ))} */}{navItems.map((item) => (
+  item.path ? (
+    <NavLink
+      key={item.name}
+      to={item.path}
+      className={({ isActive }) =>
+        `flex flex-col items-center justify-center p-2 rounded-lg transition-colors ${
+          isActive ? "text-white bg-gray-700/50" : "text-gray-400 hover:text-white hover:bg-gray-700/50"
+        }`
+      }
+      title={item.name}
+    >
+      <div className="h-6 w-6 grid place-items-center">
+        {item.icon}
+      </div>
+      <span className="text-xs md:text-sm mt-1 text-center">
+        {item.name}
+      </span>
+    </NavLink>
+  ) : (
+    <button
+      key={item.name}
+      onClick={item.action}
+      className="flex flex-col items-center justify-center p-2 text-gray-400 hover:text-white transition-all rounded-lg hover:bg-gray-700/50"
+      title={item.name}
+    >
+      <div className="h-6 w-6 grid place-items-center">
+        {item.icon}
+      </div>
+      <span className="text-xs md:text-sm mt-1 text-center">
+        {item.name}
+      </span>
+    </button>
+  )
+))}
+
             <Motion.button
               onClick={handleSignOut}
               whileHover={{ scale: 1.02 }}
