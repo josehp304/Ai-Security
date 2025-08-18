@@ -1,10 +1,11 @@
 
  import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import { AuthProvider } from './Auth/Auth.jsx';
  import Landing from './Home/Landing.jsx'
 import Login from './Home/Login.jsx'
-import SignUp from './Home/SignUp.jsx'
+// import SignUp from './Home/SignUp.jsx'
 import LiveWebcam from './WebCamInterface/Cameras.jsx'
-import Alerts from './WebCamInterface/Alerts.jsx'
+// import Alerts from './WebCamInterface/Alerts.jsx'
 
 import Accounts from './WebCamInterface/Accounts.jsx'
 import Layout from './WebCamInterface/Layout.jsx'
@@ -23,10 +24,10 @@ function App() {
          path:'/Login',
      element:<Login/>,
      },
-     {
-       path:'/SignUp',
-       element:<SignUp />
-     },
+    //  {
+    //    path:'/SignUp',
+    //    element:<SignUp />
+    //  },
 
      {
 
@@ -37,7 +38,7 @@ function App() {
           path: "Cameras", // "/Layout/cameras"
           element: <LiveWebcam />,
         },// default → Live feed
-        { path: "Alerts", element: <Alerts /> },
+        // { path: "Alerts", element: <Alerts /> },
         { path: "Accounts", element: <Accounts /> },
       ],
     },
@@ -46,13 +47,12 @@ function App() {
    
    
    ])
-   return(
-   <RouterProvider router={router}/>
-   )
+   return (
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+   );
    
-
-
-  
 }
 
 export default App

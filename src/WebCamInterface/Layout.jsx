@@ -7,12 +7,12 @@ import { MdAccountCircle } from "react-icons/md";
 import { Outlet } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 const Layout = () => {
-  const { loginNavigate } = useNavigation();
+  const { landingNavigate } = useNavigation();
   
   const handleSignOut = async () => {
     try {
       await auth.signOut();
-      loginNavigate();
+      landingNavigate();
     } catch (error) {
       console.error("Sign out error:", error);
     }
@@ -20,7 +20,7 @@ const Layout = () => {
 
   const navItems = [
     { name: "Cameras", icon: <BiCameraHome size={24} />,path:"/Cameras" },
-    { name: "Alerts", icon: <BiBell size={24}  />,path:'/Alerts' },
+    // { name: "Alerts", icon: <BiBell size={24}  />,path:'/Alerts' },
     { name: "Account", icon: <MdAccountCircle size={24} /> ,path:'/Accounts'},
     // {name:"Sign Out",icon:<BiLogOut size={24} />, action:()=>handleSignOut()}
   ];

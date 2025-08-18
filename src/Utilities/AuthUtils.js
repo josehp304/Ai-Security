@@ -13,8 +13,11 @@ const useNavigation=()=>{
   const afterAuth=()=>{
     navigate('/Cameras');
   }
+    const landingNavigate = () => {
+    navigate("/");
+  };
 
-  return {loginNavigate,SignUpNavigate,afterAuth
+  return {loginNavigate,SignUpNavigate,afterAuth,landingNavigate
     
   }
 }
