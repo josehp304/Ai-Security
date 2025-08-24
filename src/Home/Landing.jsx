@@ -18,6 +18,8 @@ import {
   FiCloud,
   FiLock
 } from 'react-icons/fi'
+import { Button } from '../components/ui/button'
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../components/ui/accordion'
 
 function Landing() {
     const {loginNavigate}=useNavigation();
@@ -182,18 +184,18 @@ function Landing() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
             >
-              <button
+              <Button
                 onClick={loginNavigate}
                 className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-xl text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center"
               >
                 Start Free Trial
                 <FiArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-              </button>
+              </Button>
               
-              <button className="group flex items-center px-8 py-4 text-white font-semibold rounded-xl text-lg border border-white/20 hover:bg-white/10 transition-all duration-300">
+              <Button variant="outline" className="group flex items-center px-8 py-4 text-white font-semibold rounded-xl text-lg border border-white/20 hover:bg-white/10 transition-all duration-300">
                 <FiPlay className="mr-2 w-5 h-5" />
                 Watch Demo
-              </button>
+              </Button>
             </motion.div>
 
             {/* Stats */}
@@ -658,7 +660,7 @@ function Landing() {
                 ))}
               </ul>
 
-              <button
+              <Button
                 onClick={loginNavigate}
                 className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
                   plan.popular
@@ -667,7 +669,7 @@ function Landing() {
                 }`}
               >
                 {plan.cta}
-              </button>
+              </Button>
             </motion.div>
           ))}
         </div>
@@ -732,19 +734,21 @@ function Landing() {
               transition={{ delay: index * 0.1 }}
               className="bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700/50"
             >
-              <details className="group">
-                <summary className="flex justify-between items-center p-6 cursor-pointer">
-                  <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors duration-200">
-                    {faq.question}
-                  </h3>
-                  <svg className="w-6 h-6 text-gray-400 group-hover:text-blue-400 transition-all duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
-                </div>
-              </details>
+              <Accordion type="single" collapsible>
+                <AccordionItem value={`item-${index}`}>
+                  <AccordionTrigger className="flex justify-between items-center p-6 cursor-pointer">
+                    <h3 className="text-lg font-semibold text-white">
+                      {faq.question}
+                    </h3>
+                    <svg className="w-6 h-6 text-gray-400 transition-all duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6">
+                    <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </motion.div>
           ))}
         </div>
@@ -756,12 +760,12 @@ function Landing() {
           className="text-center mt-12"
         >
           <p className="text-gray-400 mb-6">Still have questions?</p>
-          <button 
+          <Button
             onClick={() => scrollToSection('contact')}
             className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105"
           >
             Contact Support
-          </button>
+          </Button>
         </motion.div>
       </div>
     </section>
@@ -784,15 +788,15 @@ function Landing() {
             Try AI-Guard free for 14 days, no credit card required.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button
+            <Button
               onClick={loginNavigate}
               className="px-8 py-4 bg-white text-blue-900 font-bold rounded-xl text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Start Free Trial
-            </button>
-            <button className="px-8 py-4 text-white font-semibold rounded-xl text-lg border-2 border-white/30 hover:bg-white/10 transition-all duration-300">
+            </Button>
+            <Button variant="outline" className="px-8 py-4 text-white font-semibold rounded-xl text-lg border-2 border-white/30 hover:bg-white/10 transition-all duration-300">
               Schedule Demo
-            </button>
+            </Button>
           </div>
           <div className="flex items-center justify-center space-x-8 text-blue-200 text-sm">
             <div className="flex items-center">
