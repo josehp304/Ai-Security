@@ -1,85 +1,100 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion as Motion } from "framer-motion";
-// import { auth } from "../Auth/firebase";
-// import { div } from "framer-motion/client";
-// import useNavigation from "../Utilities/AuthUtils";
-// import { BiCameraHome, BiBell, BiCog, BiLogOut,BiAnalyse } from "react-icons/bi";
-// import { MdAccountCircle } from "react-icons/md";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+const VIDEO_FEED_URL = `${BACKEND_URL}/video_feed`;
+const STATUS_URL = `${BACKEND_URL}/api/status`;
 
 const LiveWebcam = () => {
-  // const { loginNavigate } = useNavigation();
-  // const [activeCamera, setActiveCamera] = useState("cam1");
-  const [isLoading, setIsLoading] = useState(true);
-  const videoRef = useRef(null);
-
-  // const cameraOptions = [
-  //   { id: "cam1", name: "Camera 1" },
-  //   { id: "cam2", name: "Camera 2" },
-  //   { id: "cam3", name: "Camera 3" },
-  // ];
-
-
+  const [status, setStatus] = useState({
+    fps: null,
+    confidence: null,
+    ai_analysis: "Loading...",
+    ai_in_progress: false,
+    ai_enabled: false,
+  });
 
   useEffect(() => {
-    const initializeCamera = async () => {
+    // Fetch status from backend every 2 seconds
+    const fetchStatus = async () => {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
-          setIsLoading(false);
-        }
-      } catch (err) {
-        console.error("Error accessing webcam:", err);
-        setIsLoading(false);
+        const response = await fetch(STATUS_URL);
+        const data = await response.json();
+        setStatus(data);
+      } catch (error) {
+        console.error("Error fetching status:", error);
+        setStatus(prev => ({ ...prev, ai_analysis: "Error connecting to backend" }));
       }
     };
 
-    initializeCamera();
+    // Initial fetch
+    fetchStatus();
+
+    // Set up polling interval
+    const statusInterval = setInterval(fetchStatus, 2000);
+
     return () => {
-      const stream = videoRef.current?.srcObject;
-      stream?.getTracks().forEach(track => track.stop());
+      clearInterval(statusInterval);
     };
   }, []);
 
 
 
   return (
-
-    
-        <div className="flex-1 p-3 md:p-6 bg-gray-900">
-          <div className="max-w-4xl mx-auto ">
-            <div className="relative bg-black rounded-xl overflow-hidden shadow-2xl">
-              {isLoading && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
-                  <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent"></div>
+    <div className="flex-1 p-3 md:p-6 bg-gray-900">
+      <div className="max-w-4xl mx-auto">
+        <div className="relative bg-black rounded-xl overflow-hidden shadow-2xl">
+          {/* Backend video feed */}
+          <img
+            src={VIDEO_FEED_URL}
+            alt="Video Stream"
+            className="w-full h-[calc(100vh-280px)] md:h-[calc(100vh-200px)] object-cover"
+            style={{ background: "#222" }}
+            onError={(e) => {
+              e.target.style.display = 'none';
+              console.error("Error loading video feed");
+            }}
+            onLoad={(e) => {
+              e.target.style.display = 'block';
+            }}
+          />
+          
+          {/* Status overlay */}
+          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+            <div className="flex justify-between items-center text-white">
+              <div className="flex items-center space-x-2">
+                <div className={`w-2 h-2 rounded-full ${status.ai_enabled ? "bg-green-500 animate-pulse" : "bg-gray-500"}`}></div>
+                <span className="text-sm md:text-base font-medium">
+                  AI {status.ai_enabled ? "Enabled" : "Disabled"}
+                  {status.ai_in_progress && " (Processing...)"}
+                </span>
+              </div>
+              <span className="text-sm md:text-base font-medium">
+                {new Date().toLocaleTimeString()}
+              </span>
+            </div>
+            
+            {/* AI Status Information */}
+            <div className="mt-2 text-white text-xs md:text-sm">
+              <div className="flex flex-wrap gap-4">
+                <div>
+                  <strong>FPS:</strong> {status.fps !== null ? status.fps : "--"}
                 </div>
-              )}
-              <video
-                ref={videoRef}
-                autoPlay
-                playsInline
-                muted
-                className="w-full h-[calc(100vh-280px)] md:h-[calc(100vh-200px)] object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
-                <div className="flex justify-between items-center text-white">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm md:text-base font-medium">
-                      {/* {cameraOptions.find((cam) => cam.id === activeCamera)?.name} */}
-                    </span>
-                  </div>
-                  <span className="text-sm md:text-base font-medium">
-                    {new Date().toLocaleTimeString()}
-                  </span>
+                <div>
+                  <strong>Confidence:</strong> {status.confidence !== null ? status.confidence : "--"}
                 </div>
+              </div>
+              <div className="mt-1">
+                <strong>AI Analysis:</strong> 
+                <span className={`ml-1 ${status.ai_in_progress ? "text-yellow-400" : "text-green-400"}`}>
+                  {status.ai_analysis}
+                </span>
               </div>
             </div>
           </div>
         </div>
-
-
+      </div>
+    </div>
   );
 };
 
