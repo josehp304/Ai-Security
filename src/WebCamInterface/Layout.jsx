@@ -30,7 +30,7 @@ const Layout = () => {
       {/* Top Header - Always visible */}
       <header className="bg-gray-800/95 backdrop-blur-sm border-b border-gray-700 px-4 py-3 sticky top-0 z-20">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <h1 className="text-white text-2xl font-bold">ThSecurity</h1>
+          <h1 className="text-white text-2xl font-bold">A-eye</h1>
         </div>
       </header>
 

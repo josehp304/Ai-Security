@@ -48,7 +48,7 @@ function Landing() {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                AI-Guard
+                A-eye
               </div>
             </div>
           </div>
@@ -528,7 +528,7 @@ function Landing() {
             ))}
           </div>
           <blockquote className="text-xl lg:text-2xl text-gray-300 italic mb-6">
-            "AI-Guard has transformed how we monitor our elderly care facility. The fall detection accuracy is incredible,
+            "A-eye has transformed how we monitor our elderly care facility. The fall detection accuracy is incredible,
             and the instant alerts have literally saved lives. It's become an indispensable part of our care protocol."
           </blockquote>
           <cite className="text-gray-400">
@@ -695,7 +695,7 @@ function Landing() {
             transition={{ delay: 0.1 }}
             className="text-xl text-gray-400"
           >
-            Everything you need to know about AI-Guard
+            Everything you need to know about A-eye
           </motion.p>
         </div>
 
@@ -715,7 +715,7 @@ function Landing() {
             },
             {
               question: "Can I integrate with my existing cameras?",
-              answer: "Yes! AI-Guard works with most IP cameras and security systems. We support RTSP, ONVIF, and many proprietary protocols. Our team can help with custom integrations."
+              answer: "Yes! A-eye works with most IP cameras and security systems. We support RTSP, ONVIF, and many proprietary protocols. Our team can help with custom integrations."
             },
             {
               question: "What happens if my internet goes down?",
@@ -785,7 +785,7 @@ function Landing() {
           </h2>
           <p className="text-xl text-blue-100">
             Join thousands of satisfied customers and start protecting your loved ones today.
-            Try AI-Guard free for 14 days, no credit card required.
+            Try A-eye free for 14 days, no credit card required.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
@@ -824,7 +824,7 @@ function Landing() {
           <div className="lg:col-span-2">
             <div className="flex items-center mb-6">
               <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                AI-Guard
+                A-eye
               </div>
             </div>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
@@ -880,7 +880,7 @@ function Landing() {
                 </div>
                 <div>
                   <p className="text-gray-300 font-medium">Email</p>
-                  <p className="text-gray-400">support@aiguard.com</p>
+                  <p className="text-gray-400">support@a-eye.com</p>
                 </div>
               </div>
               
@@ -912,7 +912,7 @@ function Landing() {
         <div className="border-t border-gray-800 mt-16 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {new Date().getFullYear()} AI-Guard. All rights reserved. Built with ❤️ for safer communities.
+              © {new Date().getFullYear()} A-eye. All rights reserved. Built with ❤️ for safer communities.
             </div>
             <div className="flex space-x-6 text-sm text-gray-400">
               <a href="#" className="hover:text-blue-400 transition-colors duration-200">Privacy Policy</a>

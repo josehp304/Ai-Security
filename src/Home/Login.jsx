@@ -46,12 +46,14 @@ function Login() {
         className="text-white bg-gray-800/90 rounded-2xl p-6 sm:p-8 shadow-lg w-full max-w-[min(90%,400px)] border border-gray-700 mx-auto my-auto"
       >
         {/* Heading */}
-        <h1 className="text-2xl sm:text-3xl font-bold text-center text-white mb-4 sm:mb-6">
-          ThSecurity
-        </h1>
-        <p className="text-center text-gray-400 mb-6 text-sm sm:text-base">
-          Sign in to access your security dashboard
-        </p>
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+            A-eye
+          </h1>
+          <p className="text-center text-gray-400 mb-6 text-sm sm:text-base">
+            Sign in to access your security dashboard
+          </p>
+        </div>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
