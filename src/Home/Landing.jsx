@@ -223,6 +223,185 @@ function Landing() {
       </div>
     </section>
 
+    {/* Demo Section */}
+    <section className="py-24 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/10 via-transparent to-cyan-900/10"></div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block text-blue-400 text-sm font-semibold tracking-wide uppercase mb-4"
+          >
+            See A-eye In Action
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl lg:text-5xl font-bold text-white mb-6"
+          >
+            Real-time monitoring & instant alerts
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-xl text-gray-400 max-w-3xl mx-auto"
+          >
+            Watch how A-eye detects activity, analyzes behavior, and sends immediate notifications
+            to keep you informed and your spaces secure.
+          </motion.p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Live Camera Feed */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
+          >
+            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-2 border border-gray-700/50">
+              <img
+                src="/live_stream.png"
+                alt="A-eye Live Camera Feed Demo"
+                className="w-full h-auto rounded-xl shadow-2xl"
+              />
+            </div>
+            
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-white">Live Camera Monitoring</h3>
+              <p className="text-gray-300 leading-relaxed">
+                View real-time camera feeds with AI-powered analysis overlays. Our system continuously
+                monitors for persons, unusual activities, and potential security threats with high accuracy.
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-gray-300 text-sm">Real-time Processing</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                  <span className="text-gray-300 text-sm">AI Analysis Overlay</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
+                  <span className="text-gray-300 text-sm">Confidence Scoring</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                  <span className="text-gray-300 text-sm">Multi-Camera Support</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Email Alert System */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-6"
+          >
+            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-2 border border-gray-700/50">
+              <img
+                src="/email.png"
+                alt="A-eye Email Alert Demo"
+                className="w-full h-auto rounded-xl shadow-2xl"
+              />
+            </div>
+            
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-white">Instant Email Alerts</h3>
+              <p className="text-gray-300 leading-relaxed">
+                Receive detailed email notifications the moment our AI detects suspicious activity.
+                Each alert includes timestamps, confidence levels, and captured images for immediate assessment.
+              </p>
+              
+              <div className="space-y-3">
+                <div className="flex items-start space-x-3">
+                  <FiCheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="text-white font-medium">Instant Delivery</span>
+                    <p className="text-gray-400 text-sm">Alerts sent within 2 seconds of detection</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-3">
+                  <FiCheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="text-white font-medium">Rich Context</span>
+                    <p className="text-gray-400 text-sm">Includes AI analysis and confidence scores</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-3">
+                  <FiCheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="text-white font-medium">Visual Evidence</span>
+                    <p className="text-gray-400 text-sm">Captured images attached to every alert</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3">
+                  <FiCheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="text-white font-medium">Multi-Channel</span>
+                    <p className="text-gray-400 text-sm">Email, SMS, and mobile app notifications</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Call-to-Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+          className="text-center mt-16"
+        >
+          <div className="bg-gradient-to-r from-blue-900/20 to-cyan-900/20 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20">
+            <h4 className="text-2xl font-bold text-white mb-4">
+              Experience A-eye's Intelligence
+            </h4>
+            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+              Ready to see how A-eye can protect your space? Start your free trial and experience
+              real-time AI monitoring with instant alerts.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                onClick={loginNavigate}
+                size="lg"
+                className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold px-8 py-3 text-lg"
+              >
+                Start Free Trial
+                <FiArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white px-8 py-3 text-lg"
+              >
+                <FiPlay className="mr-2 w-5 h-5" />
+                Watch Full Demo
+              </Button>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+
     {/* Features Section */}
     <section id="features" className="py-24 bg-gray-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
